@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEWS | Nanami's Secret Base</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, #FFF0F5 0%, #EEF4FB 100%);
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--color-blue-dark);
+    }
+    .page-hero p {
+      color: var(--color-text-light);
+      margin-top: 8px;
+    }
+    .news-filter {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+    .filter-btn {
+      padding: 6px 18px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      background: var(--color-white);
+      color: var(--color-text);
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--color-pink-dark);
+      color: var(--color-white);
+      border-color: var(--color-pink-dark);
+    }
+    .news-full-list {
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+    }
+    .news-full-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 24px;
+      border-bottom: 1px solid var(--color-border);
+      transition: background var(--transition);
+    }
+    .news-full-item:last-child { border-bottom: none; }
+    .news-full-item:hover { background: var(--color-pink-light); }
+    .news-full-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 100px;
+    }
+    .news-full-body h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-blue-dark);
+      margin-bottom: 6px;
+    }
+    .news-full-body p {
+      font-size: 0.9rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-main">Nanami's</span>
+          <span class="logo-sub">Secret Base</span>
+        </a>
+      </div>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="news.html" class="active">NEWS</a></li>
+          <li><a href="member.html">MEMBER ONLY</a></li>
+          <li><a href="store.html">STORE</a></li>
+          <li><a href="join.html" class="nav-join">JOIN / LOGIN</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>NEWS</h1>
+      <p>ななみの最新情報をお届けします</p>
+    </div>
+  </div>
+
+  <section class="section" style="background: var(--color-white);">
+    <div class="container">
+      <div class="news-filter">
+        <button class="filter-btn active">すべて</button>
+        <button class="filter-btn">イベント</button>
+        <button class="filter-btn">グッズ</button>
+        <button class="filter-btn">メディア</button>
+        <button class="filter-btn">会員限定</button>
+      </div>
+      <div class="news-full-list">
+        <div class="news-full-item">
+          <div class="news-full-meta">
+            <time class="news-date">2026.03.25</time>
+            <span class="news-tag tag-event">イベント</span>
+          </div>
+          <div class="news-full-body">
+            <h3>春のオンラインお茶会開催決定！会員限定サイン入りポストカードプレゼント</h3>
+            <p>4月15日（水）20:00より、会員限定のオンラインお茶会を開催します。参加者全員にサイン入りポストカードをプレゼント！詳細は会員ページをご確認ください。</p>
+          </div>
+        </div>
+        <div class="news-full-item">
+          <div class="news-full-meta">
+            <time class="news-date">2026.03.20</time>
+            <span class="news-tag tag-goods">グッズ</span>
+          </div>
+          <div class="news-full-body">
+            <h3>新グッズ「ふわふわルームウェア」受注開始のお知らせ</h3>
+            <p>ななみさんのトレードマーク「ふわふわセーター」をイメージしたルームウェアの受注販売を開始しました。ピンク×ネイビーのストライプデザインで、着心地抜群です。</p>
+          </div>
+        </div>
+        <div class="news-full-item">
+          <div class="news-full-meta">
+            <time class="news-date">2026.03.15</time>
+            <span class="news-tag tag-media">メディア</span>
+          </div>
+          <div class="news-full-body">
+            <h3>アニメ雑誌「Anime Style」4月号にななみ特集掲載！</h3>
+            <p>3月28日発売の「Anime Style」4月号にて、ななみ特集が8ページにわたって掲載されます。インタビューや未公開イラストも収録予定です。</p>
+          </div>
+        </div>
+        <div class="news-full-item">
+          <div class="news-full-meta">
+            <time class="news-date">2026.03.10</time>
+            <span class="news-tag tag-member">会員限定</span>
+          </div>
+          <div class="news-full-body">
+            <h3>【会員限定】3月のブログ更新＆限定壁紙プレゼント配布中</h3>
+            <p>3月の日記を更新しました。また、春らしいパステルカラーの限定壁紙（スマホ・PC各サイズ）を会員ページにて配布中です。ぜひダウンロードしてください。</p>
+          </div>
+        </div>
+        <div class="news-full-item">
+          <div class="news-full-meta">
+            <time class="news-date">2026.03.01</time>
+            <span class="news-tag tag-event">イベント</span>
+          </div>
+          <div class="news-full-body">
+            <h3>ファンクラブ開設1周年記念キャンペーン実施中！</h3>
+            <p>おかげさまでファンクラブ開設から1周年を迎えました。記念として、3月中に入会された方全員に特製デジタルステッカーセットをプレゼントします。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <span class="logo-main">Nanami's</span>
+          <span class="logo-sub">Secret Base</span>
+          <p>Official Fan Club</p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="index.html">TOP</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="member.html">MEMBER ONLY</a></li>
+            <li><a href="store.html">STORE</a></li>
+            <li><a href="join.html">JOIN / LOGIN</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nanami's Secret Base. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+          <a href="#">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JOIN / LOGIN | Nanami's Secret Base</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .join-page {
+      background: linear-gradient(135deg, #FFF0F5 0%, #EEF4FB 100%);
+      min-height: 100vh;
+      padding: 60px 0;
+    }
+    .join-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .join-visual {
+      position: sticky;
+      top: 100px;
+    }
+    .join-visual img {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      border: 3px solid rgba(244, 167, 185, 0.3);
+    }
+    .join-visual-caption {
+      text-align: center;
+      margin-top: 16px;
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--color-text-light);
+    }
+
+    .join-panel {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+    .join-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 32px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .join-tab {
+      flex: 1;
+      padding: 12px;
+      text-align: center;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: var(--color-bg);
+      color: var(--color-text-light);
+      border: none;
+      transition: all var(--transition);
+    }
+    .join-tab.active {
+      background: var(--color-pink-dark);
+      color: var(--color-white);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--color-blue-dark);
+      margin-bottom: 6px;
+    }
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: 0.95rem;
+      font-family: var(--font-sans);
+      color: var(--color-text);
+      background: var(--color-bg);
+      transition: border-color var(--transition);
+      outline: none;
+    }
+    .form-group input:focus, .form-group select:focus {
+      border-color: var(--color-pink-dark);
+      box-shadow: 0 0 0 3px rgba(232, 130, 154, 0.15);
+    }
+    .form-submit { width: 100%; margin-top: 8px; }
+    .form-note {
+      font-size: 0.8rem;
+      color: var(--color-text-light);
+      text-align: center;
+      margin-top: 12px;
+    }
+    .form-note a { color: var(--color-pink-dark); }
+
+    .benefits-section {
+      margin-top: 40px;
+      padding-top: 32px;
+      border-top: 1px solid var(--color-border);
+    }
+    .benefits-section h3 {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      color: var(--color-blue-dark);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px;
+      background: var(--color-bg);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+    .benefit-item span { font-size: 1.3rem; }
+    .benefit-item p { font-size: 0.85rem; color: var(--color-text); font-weight: 500; }
+
+    @media (max-width: 768px) {
+      .join-layout { grid-template-columns: 1fr; }
+      .join-visual { display: none; }
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-main">Nanami's</span>
+          <span class="logo-sub">Secret Base</span>
+        </a>
+      </div>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="news.html">NEWS</a></li>
+          <li><a href="member.html">MEMBER ONLY</a></li>
+          <li><a href="store.html">STORE</a></li>
+          <li><a href="join.html" class="nav-join active">JOIN / LOGIN</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="join-page">
+    <div class="container">
+      <div class="join-layout">
+        <div class="join-visual">
+          <img src="assets/images/nanami_invitation.jpg" alt="ななみ 招待状">
+          <p class="join-visual-caption">"あなたへ、特別な招待状を贈ります。"</p>
+        </div>
+        <div class="join-panel">
+          <div class="join-tabs">
+            <button class="join-tab active" onclick="switchTab('register')">新規会員登録</button>
+            <button class="join-tab" onclick="switchTab('login')">ログイン</button>
+          </div>
+
+          <!-- 新規登録 -->
+          <div class="tab-content active" id="tab-register">
+            <form>
+              <div class="form-group">
+                <label for="reg-name">お名前（ニックネーム可）</label>
+                <input type="text" id="reg-name" placeholder="例：ななみファン">
+              </div>
+              <div class="form-group">
+                <label for="reg-email">メールアドレス</label>
+                <input type="email" id="reg-email" placeholder="nanami@example.com">
+              </div>
+              <div class="form-group">
+                <label for="reg-password">パスワード（8文字以上）</label>
+                <input type="password" id="reg-password" placeholder="••••••••">
+              </div>
+              <div class="form-group">
+                <label for="reg-plan">プラン選択</label>
+                <select id="reg-plan">
+                  <option value="monthly">月額プラン ¥500/月</option>
+                  <option value="yearly">年額プラン ¥5,000/年（2ヶ月分お得）</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-primary btn-large form-submit">秘密基地に入る ✦</button>
+              <p class="form-note">登録することで<a href="#">利用規約</a>および<a href="#">プライバシーポリシー</a>に同意したことになります。</p>
+            </form>
+
+            <div class="benefits-section">
+              <h3>入会特典</h3>
+              <div class="benefits-grid">
+                <div class="benefit-item"><span>🎴</span><p>デジタル会員証</p></div>
+                <div class="benefit-item"><span>📰</span><p>毎月の会報（デジタル版）</p></div>
+                <div class="benefit-item"><span>🎁</span><p>誕生日限定メッセージ</p></div>
+                <div class="benefit-item"><span>🖼️</span><p>限定壁紙プレゼント</p></div>
+                <div class="benefit-item"><span>🎬</span><p>限定動画アーカイブ</p></div>
+                <div class="benefit-item"><span>💬</span><p>BBS・ブログアクセス</p></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ログイン -->
+          <div class="tab-content" id="tab-login">
+            <form>
+              <div class="form-group">
+                <label for="login-email">メールアドレス</label>
+                <input type="email" id="login-email" placeholder="nanami@example.com">
+              </div>
+              <div class="form-group">
+                <label for="login-password">パスワード</label>
+                <input type="password" id="login-password" placeholder="••••••••">
+              </div>
+              <button type="submit" class="btn btn-primary btn-large form-submit">ログイン</button>
+              <p class="form-note">パスワードをお忘れの方は<a href="#">こちら</a></p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <span class="logo-main">Nanami's</span>
+          <span class="logo-sub">Secret Base</span>
+          <p>Official Fan Club</p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="index.html">TOP</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="member.html">MEMBER ONLY</a></li>
+            <li><a href="store.html">STORE</a></li>
+            <li><a href="join.html">JOIN / LOGIN</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nanami's Secret Base. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+          <a href="#">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    function switchTab(tab) {
+      document.querySelectorAll('.join-tab').forEach((btn, i) => {
+        btn.classList.toggle('active', (i === 0 && tab === 'register') || (i === 1 && tab === 'login'));
+      });
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+    }
+  </script>
+</body>
+</html>

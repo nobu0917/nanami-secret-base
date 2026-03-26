@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STORE | Nanami's Secret Base</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    .page-hero {
+      background: linear-gradient(135deg, #FFF0F5 0%, #EEF4FB 100%);
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+    .page-hero h1 {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--color-blue-dark);
+    }
+    .page-hero p { color: var(--color-text-light); margin-top: 8px; }
+
+    .store-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .product-card {
+      background: var(--color-white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .product-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+    }
+    .product-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .product-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover .product-img img { transform: scale(1.05); }
+    .product-body { padding: 20px; }
+    .product-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: var(--color-pink-light);
+      color: var(--color-pink-dark);
+      margin-bottom: 8px;
+    }
+    .product-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-blue-dark);
+      margin-bottom: 6px;
+    }
+    .product-desc {
+      font-size: 0.85rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+      margin-bottom: 14px;
+    }
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--color-pink-dark);
+    }
+    .cart-notice {
+      background: linear-gradient(135deg, var(--color-pink-light), var(--color-blue-light));
+      border-radius: var(--radius-md);
+      padding: 24px;
+      text-align: center;
+      margin-top: 48px;
+      border: 1px solid var(--color-border);
+    }
+    .cart-notice p { color: var(--color-text-light); margin-bottom: 12px; }
+
+    @media (max-width: 768px) {
+      .store-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .store-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="logo">
+        <a href="index.html">
+          <span class="logo-main">Nanami's</span>
+          <span class="logo-sub">Secret Base</span>
+        </a>
+      </div>
+      <nav class="main-nav" id="mainNav">
+        <ul>
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="news.html">NEWS</a></li>
+          <li><a href="member.html">MEMBER ONLY</a></li>
+          <li><a href="store.html" class="active">STORE</a></li>
+          <li><a href="join.html" class="nav-join">JOIN / LOGIN</a></li>
+        </ul>
+      </nav>
+      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div class="page-hero">
+    <div class="container">
+      <h1>STORE</h1>
+      <p>ななみオフィシャルグッズショップ</p>
+    </div>
+  </div>
+
+  <section class="section" style="background: var(--color-bg);">
+    <div class="container">
+      <div class="store-grid">
+        <div class="product-card">
+          <div class="product-img">
+            <img src="assets/images/nanami_goods.jpg" alt="ぬいぐるみ">
+          </div>
+          <div class="product-body">
+            <span class="product-badge">人気No.1</span>
+            <h3 class="product-name">ななみぬいぐるみ</h3>
+            <p class="product-desc">ピンクのリボンがかわいい、ななみのマスコットぬいぐるみ。高さ約20cm。</p>
+            <div class="product-footer">
+              <span class="product-price">¥3,800</span>
+              <a href="join.html" class="btn btn-small btn-primary">カートに追加</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="assets/images/nanami_main.jpg" alt="ポストカード">
+          </div>
+          <div class="product-body">
+            <span class="product-badge">新発売</span>
+            <h3 class="product-name">サイン入りポストカードセット（5枚組）</h3>
+            <p class="product-desc">厳選された5種類のイラストをポストカードにしたセット。印刷サイン入り。</p>
+            <div class="product-footer">
+              <span class="product-price">¥1,500</span>
+              <a href="join.html" class="btn btn-small btn-primary">カートに追加</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="assets/images/nanami_goods2.jpg" alt="アクリルスタンド">
+          </div>
+          <div class="product-body">
+            <span class="product-badge">定番</span>
+            <h3 class="product-name">アクリルスタンド</h3>
+            <p class="product-desc">高さ約15cmのアクリルスタンド。デスクやシェルフに飾れるコンパクトサイズ。</p>
+            <div class="product-footer">
+              <span class="product-price">¥2,200</span>
+              <a href="join.html" class="btn btn-small btn-primary">カートに追加</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="assets/images/nanami_main2.jpg" alt="Tシャツ">
+          </div>
+          <div class="product-body">
+            <span class="product-badge">限定</span>
+            <h3 class="product-name">ロゴTシャツ</h3>
+            <p class="product-desc">「Nanami's Secret Base」ロゴ入りTシャツ。ユニセックスサイズ展開。</p>
+            <div class="product-footer">
+              <span class="product-price">¥4,500</span>
+              <a href="join.html" class="btn btn-small btn-primary">カートに追加</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="assets/images/nanami_selfie.jpg" alt="ルームウェア">
+          </div>
+          <div class="product-body">
+            <span class="product-badge">受注生産</span>
+            <h3 class="product-name">ふわふわルームウェア</h3>
+            <p class="product-desc">ななみさんのトレードマークをイメージしたピンク×ネイビーのルームウェア。</p>
+            <div class="product-footer">
+              <span class="product-price">¥8,800</span>
+              <a href="join.html" class="btn btn-small btn-primary">カートに追加</a>
+            </div>
+          </div>
+        </div>
+        <div class="product-card">
+          <div class="product-img">
+            <img src="assets/images/nanami_invitation.jpg" alt="会員証">
+          </div>
+          <div class="product-body">
+            <span class="product-badge">会員特典</span>
+            <h3 class="product-name">デジタル会員証（入会特典）</h3>
+            <p class="product-desc">入会時に発行されるデジタル会員証。スマホに保存して使えます。</p>
+            <div class="product-footer">
+              <span class="product-price">無料</span>
+              <a href="join.html" class="btn btn-small btn-outline">入会して受け取る</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-notice">
+        <p>購入にはファンクラブへの会員登録が必要です。</p>
+        <a href="join.html" class="btn btn-primary">会員登録して購入する</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">
+          <span class="logo-main">Nanami's</span>
+          <span class="logo-sub">Secret Base</span>
+          <p>Official Fan Club</p>
+        </div>
+        <nav class="footer-nav">
+          <ul>
+            <li><a href="index.html">TOP</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="member.html">MEMBER ONLY</a></li>
+            <li><a href="store.html">STORE</a></li>
+            <li><a href="join.html">JOIN / LOGIN</a></li>
+          </ul>
+        </nav>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Nanami's Secret Base. All Rights Reserved.</p>
+        <div class="footer-links">
+          <a href="#">プライバシーポリシー</a>
+          <a href="#">利用規約</a>
+          <a href="#">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
