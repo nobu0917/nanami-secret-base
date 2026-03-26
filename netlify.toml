@@ -1,0 +1,10 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+
+# Basic認証の設定
+# パスワードを変更する場合は下記を参照：
+# https://docs.netlify.com/visitor-access/password-protection/
